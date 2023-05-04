@@ -1,0 +1,72 @@
+﻿@model MvcGame.Models.GameGenreViewModel
+
+@{
+    ViewData["Tytul"] = "Index";
+}
+
+<h1>Lista fajnych gierek</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowe</a>
+</p>
+<form asp-controller="Games" asp-action="Index" method="get">
+    <p>
+
+        <select asp-for="GameGenre" asp-items="Model.Genres">
+            <option value="">Wszystkie</option>
+        </select>
+
+        Tytul: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filtruj" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Games![0].Tytul)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games![0].Data_wydania)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games![0].Gatunek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].Wydawca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games![0].Cena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Games!)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tytul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_wydania)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gatunek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wydawca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cena)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

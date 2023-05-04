@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "ServiceBus";
+}
+<div class="text-center">
+    <h1 class="display-4">Brakuje gry? Napisz do nas!</h1>
+    <form action="@Url.Action("SendMessage", "ServiceBus")" method="post">
+        <input type="text" name="message" required />
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+
+</div>

@@ -1,0 +1,52 @@
+﻿@model MvcGame.Models.Game
+
+@{
+    ViewData["Tytul"] = "Edytuj";
+}
+
+<h1>Edytuj</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Tytul" class="control-label"></label>
+                <input asp-for="Tytul" class="form-control" />
+                <span asp-validation-for="Tytul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data_wydania" class="control-label"></label>
+                <input asp-for="Data_wydania" class="form-control" />
+                <span asp-validation-for="Data_wydania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gatunek" class="control-label"></label>
+                <input asp-for="Gatunek" class="form-control" />
+                <span asp-validation-for="Gatunek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label"></label>
+                <input asp-for="Cena" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wydawca" class="control-label"></label>
+                <input asp-for="Wydawca" class="form-control" />
+                <span asp-validation-for="Wydawca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

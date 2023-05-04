@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/janekprojektserver/databases/janekprojekdb",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:MvcGameContext",
+      "dynamicId": null
+    },
+    "storage1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/storageprojektjanek",
+      "type": "storage.azure",
+      "connectionId": "BlobController:Controller",
+      "dynamicId": null
+    }
+  }
+}
